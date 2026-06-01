@@ -9,10 +9,25 @@ app.config['SECRET_KEY'] = os.environ.get(
     'devops_secret_key'
 )
 
-DB_USERNAME = os.environ.get('POSTGRES_USER', 'postgres')
-DB_PASSWORD = os.environ.get('POSTGRES_PASSWORD', 'postgres')
-DB_HOST = os.environ.get('POSTGRES_HOST', 'db')
-DB_NAME = os.environ.get('POSTGRES_DB', 'flask_db')
+DB_USERNAME = os.environ.get(
+    'POSTGRES_USER',
+    'postgres'
+)
+
+DB_PASSWORD = os.environ.get(
+    'POSTGRES_PASSWORD',
+    'postgres'
+)
+
+DB_HOST = os.environ.get(
+    'POSTGRES_HOST',
+    'db'
+)
+
+DB_NAME = os.environ.get(
+    'POSTGRES_DB',
+    'flask_db'
+)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = (
     f'postgresql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}'
@@ -29,6 +44,7 @@ with app.app_context():
 @app.route('/')
 def index():
     products = Product.query.all()
+
     return render_template(
         'index.html',
         products=products
@@ -61,14 +77,17 @@ def admin():
                 "success"
             )
 
-        except Exception:
+        except Exception as e:
             db.session.rollback()
+
             flash(
-                "Failed to add product.",
+                f"Error: {e}",
                 "danger"
             )
 
-        return redirect(url_for('admin'))
+        return redirect(
+            url_for('admin')
+        )
 
     products = Product.query.all()
 
@@ -91,7 +110,9 @@ def delete_product(id):
         "warning"
     )
 
-    return redirect(url_for('admin'))
+    return redirect(
+        url_for('admin')
+    )
 
 
 @app.route('/about')
@@ -115,5 +136,6 @@ def about():
 if __name__ == '__main__':
     app.run(
         host='0.0.0.0',
-        port=5000
+        port=5000,
+        debug=True
     )
