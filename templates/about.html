@@ -6,53 +6,184 @@ System Information
 
 {% block content %}
 
-<div class="card p-5">
+<div class="row mb-4">
 
 ```
-<h2 class="text-info mb-4">
-    ℹ️ DevOps Deployment Metadata
-</h2>
+<div class="col-md-12">
 
-<p>
-    This page demonstrates that the Flask application
-    is successfully receiving environment variables
-    from Docker Compose and production deployment.
-</p>
+    <div class="card bg-dark text-white border-0 shadow-lg">
 
-<table class="table table-bordered mt-3">
+        <div class="card-body p-5">
 
-    <thead class="table-light">
+            <h1 class="display-5 fw-bold text-info">
+                ⚡ DevOps Infrastructure Dashboard
+            </h1>
 
-        <tr>
-            <th>Configuration Key</th>
-            <th>Injected Value</th>
-        </tr>
+            <p class="lead mt-3">
+                Live deployment information from the production environment.
+            </p>
 
-    </thead>
+            <div class="mt-4">
 
-    <tbody>
+                <span class="badge bg-success fs-6 me-2">
+                    Flask
+                </span>
 
-    {% for key, value in env_info.items() %}
+                <span class="badge bg-primary fs-6 me-2">
+                    PostgreSQL
+                </span>
 
-        <tr>
+                <span class="badge bg-info text-dark fs-6 me-2">
+                    Docker
+                </span>
 
-            <td>
-                <strong>{{ key }}</strong>
-            </td>
+                <span class="badge bg-warning text-dark fs-6 me-2">
+                    Nginx
+                </span>
 
-            <td>
-                <code class="text-danger">
-                    {{ value }}
-                </code>
-            </td>
+                <span class="badge bg-danger fs-6">
+                    CI/CD
+                </span>
 
-        </tr>
+            </div>
 
-    {% endfor %}
+        </div>
 
-    </tbody>
+    </div>
 
-</table>
+</div>
+```
+
+</div>
+
+<div class="row">
+
+```
+<div class="col-md-4 mb-4">
+
+    <div class="card text-center p-4 h-100">
+
+        <h1>🚀</h1>
+
+        <h5 class="fw-bold">
+            Deployment Status
+        </h5>
+
+        <p class="text-success fs-4 fw-bold">
+            LIVE
+        </p>
+
+    </div>
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+    <div class="card text-center p-4 h-100">
+
+        <h1>🐳</h1>
+
+        <h5 class="fw-bold">
+            Containerization
+        </h5>
+
+        <p class="text-primary fs-4 fw-bold">
+            Docker Active
+        </p>
+
+    </div>
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+    <div class="card text-center p-4 h-100">
+
+        <h1>🗄️</h1>
+
+        <h5 class="fw-bold">
+            Database
+        </h5>
+
+        <p class="text-info fs-4 fw-bold">
+            PostgreSQL
+        </p>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+<div class="card shadow-lg border-0">
+
+```
+<div class="card-header bg-dark text-white">
+
+    <h4 class="mb-0">
+        📊 Environment Configuration
+    </h4>
+
+</div>
+
+<div class="card-body">
+
+    <div class="table-responsive">
+
+        <table class="table table-hover align-middle">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Configuration Key
+                    </th>
+
+                    <th>
+                        Current Value
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% for key, value in env_info.items() %}
+
+                <tr>
+
+                    <td>
+
+                        <strong>
+                            {{ key }}
+                        </strong>
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge bg-light text-dark border fs-6">
+
+                            {{ value }}
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
 ```
 
 </div>

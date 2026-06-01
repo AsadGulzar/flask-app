@@ -6,69 +6,72 @@ Home | DevOps Store
 
 {% block content %}
 
-<div class="p-5 mb-4 bg-dark text-white rounded-3">
+<div class="bg-dark text-white rounded-4 p-5 mb-5 shadow-lg">
 
 ```
-<div class="container-fluid py-5">
+<div class="row align-items-center">
 
-    <h1 class="display-5 fw-bold text-info">
-        Welcome to DevOps Cloud Storeee
-    </h1>
+    <div class="col-lg-8">
 
-    <p class="col-md-8 fs-4">
-        Flask + PostgreSQL + Docker + Nginx + GitHub Actions CI/CD
-    </p>
+        <span class="badge bg-info text-dark mb-3 fs-6">
+            🚀 DevOps Portfolio Project
+        </span>
 
-    <a href="{{ url_for('admin') }}"
-       class="btn btn-info btn-lg">
+        <h1 class="display-4 fw-bold text-info mb-3">
+            DevOps Cloud Store
+        </h1>
 
-        Go to Admin Dashboard
+        <p class="lead">
+            Production-ready Flask application deployed with
+            PostgreSQL, Docker, Nginx and GitHub Actions CI/CD.
+        </p>
 
-    </a>
+        <div class="mt-4">
 
-</div>
-```
-
-</div>
-
-<h2 class="mb-4 text-secondary">
-    🛒 Latest Products
-</h2>
-
-<div class="row">
-
-{% if products %}
-
-```
-{% for product in products %}
-
-<div class="col-md-4 mb-4">
-
-    <div class="card h-100">
-
-        <div class="card-body">
-
-            <span class="badge bg-secondary mb-2">
-                {{ product.category }}
+            <span class="badge bg-primary me-2 p-2">
+                Flask
             </span>
 
-            <h5 class="card-title fw-bold">
-                {{ product.name }}
-            </h5>
+            <span class="badge bg-success me-2 p-2">
+                PostgreSQL
+            </span>
 
-            <p class="card-text text-muted">
-                {{ product.description }}
-            </p>
+            <span class="badge bg-warning text-dark me-2 p-2">
+                Docker
+            </span>
 
-            <div class="d-flex justify-content-between align-items-center mt-3">
+            <span class="badge bg-danger me-2 p-2">
+                Nginx
+            </span>
 
-                <span class="h4 text-success mb-0">
-                    ${{ "%.2f"|format(product.price) }}
-                </span>
+            <span class="badge bg-secondary p-2">
+                GitHub Actions
+            </span>
 
-                <button class="btn btn-outline-dark btn-sm">
-                    Buy Now
-                </button>
+        </div>
+
+        <a href="{{ url_for('admin') }}"
+           class="btn btn-info btn-lg mt-4">
+
+            ⚙️ Admin Dashboard
+
+        </a>
+
+    </div>
+
+    <div class="col-lg-4 text-center">
+
+        <div class="card bg-secondary border-0 shadow">
+
+            <div class="card-body">
+
+                <h3 class="text-white">
+                    ☁️ Cloud Ready
+                </h3>
+
+                <p class="text-light mb-0">
+                    CI/CD Pipeline Active
+                </p>
 
             </div>
 
@@ -77,19 +80,138 @@ Home | DevOps Store
     </div>
 
 </div>
+```
+
+</div>
+
+<div class="row mb-5">
+
+```
+<div class="col-md-4 mb-3">
+
+    <div class="card border-0 shadow-sm text-center">
+
+        <div class="card-body">
+
+            <h2 class="text-primary">🐳</h2>
+
+            <h5>Dockerized</h5>
+
+            <p class="text-muted">
+                Multi-container deployment
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="col-md-4 mb-3">
+
+    <div class="card border-0 shadow-sm text-center">
+
+        <div class="card-body">
+
+            <h2 class="text-success">🗄️</h2>
+
+            <h5>PostgreSQL</h5>
+
+            <p class="text-muted">
+                Persistent database storage
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="col-md-4 mb-3">
+
+    <div class="card border-0 shadow-sm text-center">
+
+        <div class="card-body">
+
+            <h2 class="text-danger">⚡</h2>
+
+            <h5>CI/CD</h5>
+
+            <p class="text-muted">
+                Automated deployment pipeline
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+<h2 class="fw-bold mb-4">
+    🛍 Latest Products
+</h2>
+
+<div class="row">
+
+{% if products %}
+
+{% for product in products %}
+
+<div class="col-lg-4 col-md-6 mb-4">
+
+```
+<div class="card h-100 border-0 shadow-sm">
+
+    <div class="card-body">
+
+        <span class="badge bg-secondary mb-3">
+            {{ product.category }}
+        </span>
+
+        <h4 class="fw-bold">
+            {{ product.name }}
+        </h4>
+
+        <p class="text-muted">
+            {{ product.description }}
+        </p>
+
+    </div>
+
+    <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center">
+
+        <span class="h4 text-success mb-0">
+            ${{ "%.2f"|format(product.price) }}
+        </span>
+
+        <button class="btn btn-dark">
+            Buy Now
+        </button>
+
+    </div>
+
+</div>
+```
+
+</div>
 
 {% endfor %}
-```
 
 {% else %}
 
 <div class="col-12">
 
 ```
-<div class="alert alert-info text-center">
+<div class="alert alert-info text-center p-4">
 
-    No products found.
-    Add products from the Admin Dashboard.
+    <h5>No Products Available</h5>
+
+    <p class="mb-0">
+        Add products from the Admin Dashboard.
+    </p>
 
 </div>
 ```

@@ -11,32 +11,78 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
+
     body {
-        background-color: #f8f9fa;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #f4f7fb;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .navbar {
+        background: linear-gradient(
+            90deg,
+            #111827,
+            #1f2937
+        ) !important;
+
+        box-shadow: 0 4px 20px rgba(0,0,0,.15);
     }
 
     .navbar-brand {
-        font-weight: bold;
+        font-weight: 700;
+        font-size: 1.4rem;
         letter-spacing: 1px;
+    }
+
+    .nav-link {
+        color: #d1d5db !important;
+        transition: .3s;
+    }
+
+    .nav-link:hover {
+        color: #22d3ee !important;
     }
 
     .card {
         border: none;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        transition: 0.3s;
+        border-radius: 18px;
+        box-shadow: 0 10px 25px rgba(0,0,0,.08);
+        transition: all .3s ease;
     }
 
     .card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0,0,0,.12);
+    }
+
+    .alert {
+        border-radius: 12px;
+    }
+
+    .btn-info {
+        border-radius: 12px;
+        font-weight: 600;
+    }
+
+    .btn-dark {
+        border-radius: 12px;
     }
 
     .footer {
-        background: #212529;
+        background: #111827;
         color: white;
-        padding: 20px 0;
-        margin-top: 50px;
+        margin-top: 70px;
+        padding: 35px 0;
     }
+
+    .footer-tech {
+        color: #9ca3af;
+        font-size: 14px;
+    }
+
+    .main-container {
+        min-height: 75vh;
+    }
+
 </style>
 ```
 
@@ -44,13 +90,16 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
 
 ```
+<div class="container">
+
     <a class="navbar-brand text-info"
        href="{{ url_for('index') }}">
+
         🚀 DEVOPS STORE
+
     </a>
 
     <button class="navbar-toggler"
@@ -62,7 +111,8 @@
 
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse"
+         id="navbarNav">
 
         <ul class="navbar-nav ms-auto">
 
@@ -83,7 +133,7 @@
             <li class="nav-item">
                 <a class="nav-link"
                    href="{{ url_for('about') }}">
-                    ℹ️ System Info
+                    📊 System Info
                 </a>
             </li>
 
@@ -96,7 +146,7 @@
 
 </nav>
 
-<div class="container mt-4">
+<div class="container mt-4 main-container">
 
 ```
 {% with messages = get_flashed_messages(with_categories=true) %}
@@ -124,14 +174,21 @@
 
 </div>
 
-<footer class="footer text-center">
+<footer class="footer">
 
 ```
-<div class="container">
+<div class="container text-center">
+
+    <h5 class="mb-3 text-info">
+        🚀 DevOps Cloud Store
+    </h5>
+
+    <p class="footer-tech mb-1">
+        Flask • PostgreSQL • Docker • Nginx • GitHub Actions
+    </p>
 
     <p class="mb-0">
-        © 2026 DevOps Store |
-        Flask • PostgreSQL • Docker • Nginx • CI/CD
+        © 2026 All Rights Reserved
     </p>
 
 </div>
